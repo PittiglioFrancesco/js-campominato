@@ -42,7 +42,9 @@ console.log(RandomArray);
 var passi = [];
 
 // ciclo principale per fare gli 84 tentativi
-for (var i = 0; i < 84; i++){
+var max = 3;
+
+for (var i = 0; i < max; i++){
 
     // input del numero
     passi.push(parseInt(input()));
@@ -55,6 +57,26 @@ for (var i = 0; i < 84; i++){
             }
         }
     }
+
+    // ricerca mina
+    for (var z = 0; z < 16; z++){
+        
+        //ricerca numero uguale
+        if (passi[i] == RandomArray[z]) {
+            alert("Hai preso una mina, hai perso :( ");
+            document.getElementById("demo").innerHTML = "Hai schivato " + i + " mine su 84."
+            break;
+        }
+
+    }
+    if (z == 16){
+    alert("Mina schivata, prossimo passo");
+    }
+
+    if (i == max - 1) {
+        document.getElementById("demo").innerHTML = "Hai vinto, davvero complimenti, VAI AL GIOCARE AL LOTTO, ORAAAAA"
+    }
+
 }
 
 console.log(passi);
@@ -70,7 +92,7 @@ function randomGen(){
     for (var i = 0;i < 16; i++){
        vet.push((Math.floor(Math.random() * 100) + 1));
 
-    //ciclo per non ripetere lo stesso numero
+       //ciclo per non ripetere lo stesso numero
        if (i > 0){
            for (var j = 0; j < i; j++){
                while (vet[j] == vet[i]){
