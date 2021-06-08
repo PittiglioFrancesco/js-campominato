@@ -39,7 +39,25 @@ var RandomArray = [];
 RandomArray = randomGen();
 console.log(RandomArray);
 
+var passi = [];
 
+// ciclo principale per fare gli 84 tentativi
+for (var i = 0; i < 84; i++){
+
+    // input del numero
+    passi.push(parseInt(input()));
+
+    // ripetizione dell'input del numero se è già stato inserito
+    if (i > 0){
+        for (var j = 0; j < i; j++){
+            while (passi[j] == passi[i]){
+                passi[i] = (parseInt(input()));
+            }
+        }
+    }
+}
+
+console.log(passi);
 
 // funzioni
 
