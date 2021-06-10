@@ -36,92 +36,147 @@
 
 var RandomArray = [];
 
-RandomArray = randomGen();
+// RandomArray = randomGen();
 console.log(RandomArray);
 
 var passi = [];
 
 // ciclo principale per fare gli 84 tentativi
-var max = 3;
+var max = parseInt(document.getElementById("mode").value);
 
 var cond = true;
 console.log(cond);
 
+gioca(passi);
 
-for (var i = 0; ((i < max) && cond == true); i++){
 
-    // input del numero
-    passi.push(parseInt(input()));
+// // for (var i = 0; ((i < max) && cond == true); i++){
 
-    // ripetizione dell'input del numero se è già stato inserito
-    if (i > 0){
-        for (var j = 0; j < i; j++){
-            while (passi[j] == passi[i]){
-                alert("Inserisci un numero che non hai ancora inserito, altrimenti sarebbe troppo facile!");
-                passi[i] = (parseInt(input()));
-            }
-        }
-    }
+// //     // input del numero
+// //     passi.push(parseInt(input()));
 
-    // ricerca mina
-    for (var z = 0; (z < 16); z++){
+// //     // ripetizione dell'input del numero se è già stato inserito
+// //     if (i > 0){
+// //         for (var j = 0; j < i; j++){
+// //             while (passi[j] == passi[i]){
+// //                 alert("Inserisci un numero che non hai ancora inserito, altrimenti sarebbe troppo facile!");
+// //                 passi[i] = (parseInt(input()));
+// //             }
+// //         }
+// //     }
+
+// //     // ricerca mina
+// //     for (var z = 0; (z < 16); z++){
         
-        //ricerca numero uguale
-        if (passi[i] == RandomArray[z]) {
-            cond = false;
-            console.log(cond);
-            alert("Hai preso una mina, hai perso :( ");
-            break;
-        }
+// //         //ricerca numero uguale
+// //         if (passi[i] == RandomArray[z]) {
+// //             cond = false;
+// //             console.log(cond);
+// //             alert("Hai preso una mina, hai perso :( ");
+// //             break;
+// //         }
 
-    }
-    console.log("z "+ z);
-    if (z == 16){
-    alert("Mina schivata, prossimo passo");
-    }
+// //     }
+// //     console.log("z "+ z);
+// //     if (z == 16){
+// //     alert("Mina schivata, prossimo passo");
+// //     }
 
-    if (cond == true) {
-        document.getElementById("demo").innerHTML = "Hai vinto, davvero complimenti, VAI AL GIOCARE AL LOTTO, ORAAAAA";
-    } else {
-        document.getElementById("demo").innerHTML = "Hai schivato " + i + " mine su " + max + ".";
-    }
+// //     if (cond == true) {
+// //         document.getElementById("demo").innerHTML = "Hai vinto, davvero complimenti, VAI AL GIOCARE AL LOTTO, ORAAAAA";
+// //     } else {
+// //         document.getElementById("demo").innerHTML = "Hai schivato " + i + " mine su " + max + ".";
+// //     }
 
-}
+// // }
 
-console.log(passi);
+// console.log(passi);
 
-// funzioni
+// // funzioni
 
-// funzione per i 16 numeri random
-function randomGen(){
+// // funzione per i 16 numeri random
+// function randomGen(){
 
-    var vet = [];
+//     var vet = [];
 
-    // ciclo per generare i numeri random
-    for (var i = 0;i < 16; i++){
-       vet.push((Math.floor(Math.random() * 100) + 1));
+//     // ciclo per generare i numeri random
+//     for (var i = 0;i < 16; i++){
+//        vet.push((Math.floor(Math.random() * 100) + 1));
 
-       //ciclo per non ripetere lo stesso numero
-       if (i > 0){
-           for (var j = 0; j < i; j++){
-               while (vet[j] == vet[i]){
-                vet[i] = (Math.floor(Math.random() * 100) + 1);  
-               }
-           }
-       }
-    }
-
-    return vet;
-}
+//        //ciclo per non ripetere lo stesso numero
+//        if (i > 0){
+//            for (var j = 0; j < i; j++){
+//                while (vet[j] == vet[i]){
+//                 vet[i] = (Math.floor(Math.random() * 100) + 1);  
+//                }
+//            }
+//        }
+//     }
+//     console.log(vet);
+//     return vet;
+// }
 
 // funzione per il prompt
 function input(){
 
     // ciclo che ripeterà il prompt finchè il numero non sarà compreso tra 1 e 100
     do{
-        var n = prompt("Inserisci un numero da 1 a 100");
+        var n = parseInt(document.getElementById("input").value);
     } while ((n <=
          0) || (n > 100));
 
     return n;
 }
+
+function gioca(passi){
+    var max = 3;
+
+    var cond = true;
+    console.log(cond);
+
+    for (var i = 0; ((i < max) && cond == true); i++){
+
+        // input del numero
+        passi.push(parseInt(input()));
+
+        // ripetizione dell'input del numero se è già stato inserito
+        if (i > 0){
+            for (var j = 0; j < i; j++){
+                while (passi[j] == passi[i]){
+                    alert("Inserisci un numero che non hai ancora inserito, altrimenti sarebbe troppo facile!");
+                    passi[i] = (parseInt(input()));
+                }
+            }
+        }
+
+        // ricerca mina
+        for (var z = 0; (z < 16); z++){
+            
+            //ricerca numero uguale
+            if (passi[i] == RandomArray[z]) {
+                cond = false;
+                console.log(cond);
+                alert("Hai preso una mina, hai perso :( ");
+                break;
+            }
+
+        }
+        console.log("z "+ z);
+        if (z == 16){
+        alert("Mina schivata, prossimo passo");
+        }
+
+        if (cond == true) {
+            document.getElementById("demo").innerHTML = "Hai vinto, davvero complimenti, VAI AL GIOCARE AL LOTTO, ORAAAAA";
+        } else {
+            document.getElementById("demo").innerHTML = "Hai schivato " + i + " mine su " + max + ".";
+        }
+
+    }
+}
+
+// add event listener
+
+document.getElementById("genera").addEventListener("click", randomGen);
+
+document.getElementById("submit").addEventListener("click", gioca);

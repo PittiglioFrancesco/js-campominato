@@ -1,0 +1,41 @@
+body{
+    background-image: url(../img/wallpaper.png);
+    background-size: cover;
+    background-color: #e29919;
+    background-position-y: 12px;
+    background-repeat: no-repeat;
+}
+
+h1, h2.gioca{
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: right;
+    padding-right: 370px;
+}
+
+h2, p, select{
+    text-align: justify;
+    margin-left: 450px;
+}
+
+#genera{
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 50px;
+    font-size: 30px;
+}
+
+#genera:hover, #mode:hover, #submit:hover{
+    color: #e29919 ;
+}
+
+#mode{
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+#input{
+    text-align: justify;
+    margin-left: 450px;
+}

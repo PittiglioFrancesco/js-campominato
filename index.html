@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="js/script.js">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Campo Minato</title>
 </head>
 <body>
+
+    <h1>testa la tua fortuna</h1>
+
+    <h2>Regole del gioco: </h2>
+
+    <p>
+        Ogni volta che aggiornerai la pagina verranno generati randomicamente 16 numeri dal valore che va da 1 a 100.
+        <br>
+        Il tuo compito è indovinare gli altri 84 numeri mancanti, te la senti?
+    </p>
+
+    <h2 class="gioca">gioca</h2>
+
+    <select name="difficoltà" id="mode">
+        <option value="100">100 numeri</option>
+        <option value="80">80 numeri</option>
+        <option value="50">50 numeri</option>
+    </select>
+    <button type="button" id="genera">Genera</button>
+
+    <h2>Inserisci numero</h2>
+
+    <input id="input" type="text">
+
+    <button id="submit" type="submit">Good Luck!</button>
     
     <p id="demo"></p>
 
